@@ -51,6 +51,11 @@ return [
             'provider' => 'authors',
         ],
 
+        'admin-api' => [
+            'driver' => 'passport',
+            'provider' => 'admins',
+        ],
+
 
     ],
 
@@ -88,6 +93,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Author::class,
         ],
+
 
         // 'users' => [
         //     'driver' => 'database',

@@ -136,23 +136,23 @@ function confirmDestroy(url, td) {
     }).then((result) => {
         if (result.isConfirmed) {
             destroy(url, td);
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'تمت عملية الحذف بنجاح',
-                showConfirmButton: false,
-                timer: 1500
-              })
+        //     Swal.fire({
+        //         position: 'center',
+        //         icon: 'success',
+        //         title: 'تمت عملية الحذف بنجاح',
+        //         showConfirmButton: false,
+        //         timer: 1500
+        //       })
 
-        }else{
+        // }else{
 
-            Swal.fire({
-                    icon: 'error',
-                    title: 'فشلت عملية الحذف .',
-                    showConfirmButton: false,
-                    timer: 1500
+        //     Swal.fire({
+        //             icon: 'error',
+        //             title: 'فشلت عملية الحذف .',
+        //             showConfirmButton: false,
+        //             timer: 1500
 
-                  })
+        //           })
         }
     });
 }

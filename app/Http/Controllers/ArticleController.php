@@ -76,7 +76,7 @@ class ArticleController extends Controller
                 $imageName = time() . 'image.' . $image->getClientOriginalExtension();
 
                 $image->move('storage/images/article', $imageName);
-                $image->storeAs('storage/images/admin', $imageName);
+                // $image->storeAs('storage/images/admin', $imageName);
 
                 $articles->image = $imageName;
                 }

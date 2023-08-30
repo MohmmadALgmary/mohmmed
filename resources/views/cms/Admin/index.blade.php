@@ -90,6 +90,7 @@
         <div class="card-header">
           @can('Create-Admin')
           <a href="{{route('admins.create')}}" type="submit" class="btn btn-info">Add New Admin</a>
+          <a href="{{route('exportExcel')}}" type="submit" class="btn btninfo">Export Excel</a>
           @endcan
         </div>
         <!-- /.card-header -->
@@ -105,7 +106,8 @@
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Status</th>
-                <th>mobile</th>
+                <th>language</th>
+                <th>language level</th>
                 <th>City Name</th>
 
 
@@ -126,7 +128,8 @@
                     <td>{{ $admin->email }}</td>
                     <td>{{ $admin->user->gender ?? ""}}</td>
                     <td>{{ $admin->user->status ?? ""}}</td>
-                    <td>{{ $admin->user->mobile ?? ""}}</td>
+                    <td>{{ $admin->languages->name ?? ""}}</td>
+                    <td>{{ $admin->languages->level ?? ""}}</td>
                     {{-- <td>{{ $admin->user ? $admin->user->mobile : "" }}</td> --}}
 
                     {{-- <td>{{ $Admin->country->name }}</td> --}}
@@ -135,12 +138,12 @@
 
                     <td>
                         <div class="btn-group">
-                          @can('Edit-Admin')
-                          <a href="{{route('admins.edit' , $admin->id )}}" type="button" class="btn btn-info">edit</a>
-                          @endcan
-                          @can('Delete-Admin')
+                          {{-- @can('Edit-Admin') --}}
+                          {{-- <a href="{{route('admins.edit' , $admin->id )}}" type="button" class="btn btn-info">edit</a> --}}
+                          {{-- @endcan --}}
+                          {{-- @can('Delete-Admin') --}}
                           <button type="button" onclick="performDestroy({{$admin->id }} , this)" class="btn btn-danger">delete</button>
-                          @endcan
+                          {{-- @endcan --}}
                           {{-- <button type="button" class="btn btn-success">show</button> --}}
                         </div>
                       </td>

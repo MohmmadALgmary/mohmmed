@@ -13,4 +13,18 @@ class City extends Model
     public function country(){
         return $this->belongsTo(Country::class);
     }
+   
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'country_id'
+    ];
+
+    protected $fillable = [
+        'name',
+        'street',
+        'country_id',
+    ];
 }
+

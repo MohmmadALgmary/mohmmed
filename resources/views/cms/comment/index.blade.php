@@ -1,4 +1,4 @@
-@extends('cms.parent')
+m@extends('cms.parent')
 
 @section('title' , 'Index Comment')
 

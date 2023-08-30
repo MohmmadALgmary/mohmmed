@@ -131,7 +131,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="button" onclick=" performUpdate({{ $admins->id }}) " class="btn btn-primary">Update</button>
+                <button type="button" onclick=" performUpdate() " class="btn btn-primary">Update</button>
 
                 <a href="{{route('admins.index')}}" type="submit" class="btn btn-info">Cancel</a>
 
@@ -156,7 +156,7 @@
 @section('scripts')
 
 <script>
-     function performUpdate(id){
+     function performUpdate(){
         let formData = new FormData();
 
         formData.append('first_name',document.getElementById('first_name').value );
@@ -172,7 +172,7 @@
         formData.append('image',document.getElementById('image').files[0] );
 
 
-        storeRoute('/cms/admin/admins-update/' + id , formData);
+        storeRoute('/cms/admin/update_profile'  , formData);
     }
 </script>
 

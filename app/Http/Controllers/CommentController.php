@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -81,6 +82,6 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $comments = Comment::destroy($id);
+        $comments = Contact::destroy($id);
     }
 }

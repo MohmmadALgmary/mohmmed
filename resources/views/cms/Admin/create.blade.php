@@ -130,6 +130,29 @@
 
             </div>
 
+            <div class="row">
+
+            <select class="form-control select2" id="language_id" name="language_id"  style="width: 100%;">
+                @foreach ($languages as $language)
+                <option value="{{ $language->id }}">{{ $language->name }}</option>
+
+                @endforeach
+
+              </select>
+
+              <select class="form-control select2" id="language_level" name="language_level"  style="width: 100%;">
+                  <option value="level_1">level_1</option>
+                  <option value="level_2">level_2</option>
+                  <option value="level_3">level_3</option>
+
+
+                </select>
+
+
+            </div>
+
+
+
             </div>
 
               </div>
@@ -178,6 +201,8 @@
         formData.append('password',document.getElementById('password').value );
         formData.append('city_id',document.getElementById('city_id').value );
         formData.append('role_id',document.getElementById('role_id').value );
+        formData.append('language_id',document.getElementById('language_id').value );
+        formData.append('language_level',document.getElementById('language_level').value );
         formData.append('image',document.getElementById('image').files[0] );
 
 

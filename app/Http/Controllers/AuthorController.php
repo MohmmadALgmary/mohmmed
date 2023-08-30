@@ -19,7 +19,7 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = Author::withCount('articles')->orderBy('id' , 'desc')->paginate(10);
-        $this->authorize('viewAny',Author::class)
+        // $this->authorize('viewAny',Author::class);
 
         return response()->view('cms.author.index' , compact('authors'));
     }
@@ -33,7 +33,7 @@ class AuthorController extends Controller
     {
         $cities = City::all();
         $roles = Role::where('guard_name' , 'author')->get();
-        $this->authorize('create',Author::class)
+        // $this->authorize('create',Author::class);
 
         return response()->view('cms.author.create' , compact('cities' , 'roles'));
 
@@ -185,7 +185,7 @@ class AuthorController extends Controller
 
                     $users->image = $imageName;
                     }
-                    
+
                 $users->first_name = $request->input('first_name');
                 $users->last_name = $request->input('last_name');
                 $users->gender = $request->input('gender');

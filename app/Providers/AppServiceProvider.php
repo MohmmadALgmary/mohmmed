@@ -27,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
+        // Maatwebsite\Excel\ExcelServiceProvider::class,
+
     }
 }

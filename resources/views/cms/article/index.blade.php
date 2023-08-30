@@ -88,8 +88,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-            <a href="{{route('createArticle' , $id)}}" type="submit" class="btn btn-info">Add New Article</a>
-          </div>
+          <a href="{{route('createArticle' , $id)}}" type="submit" class="btn btn-info">Add New Article</a>
+        </div>
         <!-- /.card-header -->
         <div class="card-body">
           <table class="table table-bordered">
@@ -119,7 +119,7 @@
 
                     <td>
                         <div class="btn-group">
-                          <a href="{{route('articles.edit' , $article->id )}}" type="button" class="btn btn-info">edit</a>
+                          <a href="{{route('categories.edit' , $article->id )}}" type="button" class="btn btn-info">edit</a>
                           <button type="button" onclick="performDestroy({{$article->id }} , this)" class="btn btn-danger">delete</button>
                           <button type="button" class="btn btn-success">show</button>
                         </div>

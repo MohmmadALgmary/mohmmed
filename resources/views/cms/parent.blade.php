@@ -274,12 +274,12 @@
             </ul>
           </li>
 
-          @canAny(['Index-Admin' , 'Create-Admin'])
+          {{-- @canAny(['Index-Admin' , 'Create-Admin']) --}}
 
           <li class="nav-header">User Mangment</li>
 
 
-          @canAny(['Index-Admin' , 'Create-Admin'])
+          {{-- @canAny(['Index-Admin' , 'Create-Admin']) --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               {{-- <i class="nav-icon fas fa-user-crown"></i> --}}
@@ -292,7 +292,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              @can('Index-Admin')
+              {{-- @can('Index-Admin') --}}
               <li class="nav-item">
                 <a href="{{ route('admins.index') }}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
@@ -300,8 +300,8 @@
                   <p>Index</p>
                 </a>
               </li>
-              @endCan
-              @can('Create-Admin')
+              {{-- @endCan --}}
+              {{-- @can('Create-Admin') --}}
 
               <li class="nav-item">
                 <a href="{{ route('admins.create') }}" class="nav-link">
@@ -310,11 +310,11 @@
                   <p>Create</p>
                 </a>
               </li>
-              @endCan
+              {{-- @endCan --}}
 
             </ul>
           </li>
-          @endCanAny
+          {{-- @endCanAny --}}
 
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -344,7 +344,7 @@
               </li>
             </ul>
           </li>
-          @endCanAny
+          {{-- @endCanAny --}}
 
           <li class="nav-header">Content Mangment</li>
           <li class="nav-item">
@@ -356,7 +356,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{ route('articles.index') }}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>Index</p>
@@ -367,9 +367,8 @@
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Create</p>
                 </a>
-              </li>
-            </ul>
-            <li class="nav-item">
+              </li> --}}
+              <li class="nav-item">
                 <a href="{{ route('articles.index') }}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   {{-- <i class="fas fa-list"></i> --}}
@@ -377,6 +376,8 @@
                 </a>
               </li>
           </li>
+            </ul>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-city"></i>
@@ -450,6 +451,29 @@
           </li>
           <li class="nav-header">Mangment WebSite</li>
 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-city"></i>
+              {{-- <i class="fas fa-city"></i> --}}
+              <p>
+                Contact
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('contacts.index') }}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  {{-- <i class="fas fa-list"></i> --}}
+                  <p>Index</p>
+                </a>
+              </li>
+           
+            </ul>
+          </li>
+
+
+
  <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-city"></i>
@@ -477,14 +501,29 @@
             </ul>
           </li>
           <li class="nav-header">Setting</li>
-          <li class="nav-item">
+          {{-- @if(Auth::guard('admin')->id()){ --}}
+
+             <li class="nav-item">
+
+            <a href="{{route('edit_profile')}}" class="nav-link">
+                <i class="nav-icon fas fa-user-edit"></i>
+              <p>Edit Profile</p>
+            </a>
+          </li>
+          {{-- } --}}
+            
+          {{-- @elseif(Auth::guard('author')->id()){
+                <li class="nav-item">
+             
             <a href="iframe.html" class="nav-link">
                 <i class="nav-icon fas fa-user-edit"></i>
               <p>Edit Profile</p>
             </a>
           </li>
+          } --}}
+         
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+            <a href="{{ route('change_password') }}" class="nav-link">
                 <i class="nav-icon fas fa-lock-open"></i>
               <p>Change Password</p>
             </a>
@@ -499,6 +538,7 @@
 
         </ul>
       </nav>
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -543,6 +583,7 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
+
 <!-- ./wrapper -->
 
 <!-- jQuery -->

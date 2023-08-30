@@ -104,6 +104,12 @@ class CountryController extends Controller
         $countries = Country::findOrFail($id);
         return response()->view('cms.country.edit' , compact('countries'));
     }
+    public function show($id)
+    {
+        $countries = Country::findOrFail($id);
+        return response()->view('cms.country.show' , compact('countries'));
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -144,4 +150,22 @@ class CountryController extends Controller
         $countries = Country::destroy($id);
 
     }
+
+    public function indexTrashed()
+    {
+        $countries =Country::onlyTrashed()->orderBy('deleted_','desc');
+
+        return response()->view('cms.country.trashed' , compact('countries'));
+    }
+    // public function restore()
+    // {
+    //     $countries =Country::onlyTrashed()->findOrFail($id)->restor();
+    //     return back()->with('success','Success');
+
+    // }
+
+
+
+
+
 }

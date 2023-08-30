@@ -25,26 +25,32 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            
+            <form>
               <div class="card-body">
+
                 <div class="row">
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Category</label>
-                          <select class="form-control select2" id="category_id" name="category_id"  style="width: 100%;">
-                            @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control select2" id="category_id" name="category_id"  style="width: 100%;">
+                          @foreach ($categories as $category)
+                          <option value="{{ $category->id }}">{{ $category->name }}</option>
 
-                            @endforeach
+                          @endforeach
 
-                          </select>
-                        </div>
-                        <input type="text" name="author_id" id="author_id" value="{{$id}}"
-                        class="form-control form-control-solid" hidden/>
+                        </select>
+                      </div>
+                      <!-- /.form-group -->
+
+                      <!-- /.form-group -->
                     </div>
 
+                    <input type="text" name="author_id" id="author_id" value="{{$id}}"
+                    class="form-control form-control-solid" hidden/>
+                  </div>
 
+                <div class="row">
 
                     <div class="form-group col-md-6">
                         <label for="title">Name of Article</label>
@@ -78,21 +84,59 @@
                 </div>
 
 
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Languages</label>
+                        {{-- <select class="form-control select2" id="language_id" name="language_id"  style="width: 100%;">
+                          @foreach ($languages as $language)
+                          <option value="{{ $language->id }}">{{ $language->name }}</option>
+  
+                          @endforeach
+  
+                        </select>
+
+                        <select class="form-control select2" id="language_level" name="language_level"  style="width: 100%;">
+                            @foreach ($languages as $language)
+                            <option value="{{ $language->level }}">{{ $language->level }}</option>
+    
+                            @endforeach
+    
+                          </select> --}}
+
+                      </div>
+{{-- 
+                      <div class="form-group">
+                        <select class="form-control select2" id="language_level" name="language_level"  style="width: 100%;">
+                          @foreach ($languages as $language)
+                          <option value="{{ $language->level }}">{{ $language->level }}</option>
+  
+                          @endforeach
+  
+                        </select>
+                      </div> --}}
+
+                    <!-- /.form-group -->
+
+                    <!-- /.form-group -->
+                  </div>
+
+
 
               </div>
               <!-- /.card-body -->
 
+              <div class="card-footer">
+                <button type="button" onclick=" performStore() " class="btn btn-primary">Store</button>
 
+                <a href="{{route('indexArticle' , $id)}}" type="submit" class="btn btn-info">Cancel</a>
 
+              </div>
+            </form>
           </div>
           <!-- /.card -->
 
-          <div class="card-footer">
-            <button type="button" onclick=" performStore() " class="btn btn-primary">Store</button>
 
-            <a href="{{route('indexArticle' , $id)}}" type="submit" class="btn btn-info">Cancel</a>
-
-          </div>
         </div>
 
         <!--/.col (right) -->
@@ -117,11 +161,10 @@
         formData.append('author_id',document.getElementById('author_id').value);
         formData.append('category_id',document.getElementById('category_id').value);
         formData.append('image',document.getElementById('image').files[0]);
+        // formData.append('language_id',document.getElementById('language_id').value);
 
         store('/cms/admin/articles' , formData);
     }
 </script>
 
 @endsection
-
-

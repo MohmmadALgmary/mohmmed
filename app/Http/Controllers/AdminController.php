@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Language;
+use App\Models\AdminLanguages;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
@@ -16,13 +19,32 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function deleteAdmin(User $user)
+{
+    if ($user->id !== auth()->user()->id) {
+        $user->delete();
+        return redirect()->route('admins.index')->with('success', 'تم حذف المسؤول بنجاح.');
+    } else {
+        return redirect()->route('admins.index')->with('error', 'لا يمكنك حذف نفسك.');
+    }
+}
+
+
+
+
+
+
+
     public function index()
     {
         $admins = Admin::orderBy('id' , 'desc')->paginate(10);
+        // $languages = Admin->lan::orderBy('id' , 'desc')->paginate(10);
 
-        $this->authorize('viewAny',Admin::class)
+        // $this->authorize('viewAny',Admin::class);
 
-        return response()->view('cms.admin.index' , compact('admins'));
+        return response()->view('cms.admin.index' , compact('admins' ));
     }
 
     /**
@@ -33,10 +55,12 @@ class AdminController extends Controller
     public function create()
     {
         $cities = City::all();
-        $roles = Role::where('guard_name' , 'admin')->get();
-        $this->authorize('create',Admin::class)
+        $languages = Language::orderBy('id' , 'desc')->paginate(10);
 
-        return response()->view('cms.admin.create' , compact('cities','roles'));
+        $roles = Role::where('guard_name' , 'admin')->get();
+        // $this->authorize('create',Admin::class);
+
+        return response()->view('cms.admin.create' , compact('cities','roles','languages'));
 
     }
 
@@ -69,6 +93,9 @@ class AdminController extends Controller
             $admins = new Admin();
             $admins->email = $request->input('email');
             $admins->password = Hash::make($request->input('password'));
+
+            $lan_admin = new AdminLanguages();
+
 
             $isSaved = $admins->save();
 
@@ -142,7 +169,7 @@ class AdminController extends Controller
         $cities= City::all();
         $admins = Admin::findOrFail($id);
 
-        return response()->view('cms.admin.edit' , compact('cities' , 'admins'));
+        return response()->view('cms.Admin.edit' , compact('cities' , 'admins'));
     }
 
     /**
@@ -229,6 +256,11 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $admins = Admin::destroy($id);
+    //    $this->authorize()
+    if(Auth::user()->id != $id){
+        Admin::findOrFail($id)->delete;
+    }else{
+        return redirect()->back();
+    }
     }
 }

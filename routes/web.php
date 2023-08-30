@@ -7,13 +7,17 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ChaletController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\LanguageController;
+
 use App\Http\Controllers\RolePermissionController;
-use App\Models\Author;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +43,14 @@ Route::prefix('cms/')->middleware('guest:admin,author')->group(function(){
 
 Route::prefix('cms/admin')->middleware('auth:admin,author')->group(function(){
     Route::get('logout' , [UserAuthController::class , 'logout'])->name('logout');
+    Route::get('change_password' , [UserAuthController::class , 'changePassword'])->name('change_password');
+    Route::post('update_password' , [UserAuthController::class , 'updatePassword'])->name('update_password');
+
+
+    Route::get('edit_profile' , [UserAuthController::class , 'edit_profile'])->name('edit_profile');
+    Route::post('update_profile' , [UserAuthController::class , 'updateProfile'])->name('update_profile');
+
+
 
 });
 
@@ -82,5 +94,42 @@ Route::prefix('cms/admin')->middleware('auth:admin,author')->group(function(){
 
     Route::resource('roles.permissions' , RolePermissionController::class);
 
+    Route::resource('companies' , CompanyController::class);
+ Route::post('companies-update/{id}' , [CompanyController::class , 'update'])->name('companies-update');
+
+//  Route::resource('products' , ProductController::class);
+//  Route::post('products-update/{id}' , [ProductController::class , 'update'])->name('products-update');
+
+ Route::resource('languages' , LanguageController::class);
+ Route::post('languages-update/{id}' , [LanguageController::class , 'update'])->name('languages-update');
+
+ Route::resource('chalets' , ChaletController::class);
+ Route::post('chalets-update/{id}' , [ChaletController::class , 'update'])->name('chalets-update');
+
+
 
 });
+
+Route::prefix('home')->group(function(){
+    Route::get('index' , [HomeController::class , 'home'])->name('news.home');
+    Route::get('all/{id}' , [HomeController::class , 'all'])->name('news.all');
+    Route::get('det/{id}' , [HomeController::class , 'detailes'])->name('news.detailes');
+    Route::get('showContact' , [HomeController::class , 'showContact'])->name('news.contact');
+    Route::post('contact' , [HomeController::class , 'storeContact'])->name('contact');
+
+});
+Route::prefix('home2')->group(function(){
+    Route::get('index' , [HomeController::class , 'home2'])->name('chalets.home2');
+   
+    // Route::post('contact' , [HomeController::class , 'storeContact'])->name('contact');
+
+});
+
+
+// Route::get('/generate-pdf', function () {
+//     $pdf = App::make('dompdf.wrapper');
+//     $pdf->loadHTML('<h1>Welcome to Laravel 10</h1>');
+//     return $pdf->stream();
+//  });
+Route::get('export-excel-csv-file', [ExcelCSVController::class,
+'exportExcelCSV'])->name('exportExcel');
