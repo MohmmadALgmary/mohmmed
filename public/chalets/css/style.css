@@ -15,7 +15,6 @@ a{
 
 
 .header-top{
-    background-color: rgba(0, 0, 255, 0.389);
     padding: 10px;
     display: flex;
     justify-content: space-around;
@@ -26,7 +25,7 @@ a{
     /* background-color: red; */
     display: flex;
     gap: 40px;
-    
+
 }
 
 .nav a {
@@ -57,8 +56,8 @@ a:hover{
 
 }
 .header-top {
-    background-color: transparent !important; 
-    
+    background-color: rgba(68, 67, 67, 0.774);
+
 }
 
 
@@ -66,7 +65,7 @@ a:hover{
     padding-top: 200px;
     color: white;
     text-align: center;
-    
+
 }
 
 .hero-text h1{
@@ -108,7 +107,7 @@ a:hover{
 
 }
 .header-log a:hover{
-   
+
     border-bottom: 2px solid #1D1D1D;
 
 }
@@ -117,7 +116,7 @@ a:hover{
     height: 60px;
     background-color: rgb(0, 132, 255);
     border-radius: 20px;
-    
+
 }
 .header-log .login{
     margin-right: 30px ;
@@ -125,7 +124,7 @@ a:hover{
     height: 60px;
     background-color: rgb(0, 132, 255);
     border-radius: 20px;
-    
+
 }
 /* end sec1 */
 
@@ -170,14 +169,14 @@ a:hover{
     display: flex;
     justify-content: space-between;
     padding: 0 40px;
-    
+
 }
 
 .offer img{
     width: 350px;
     height: 250px;
     border-radius: 10px;
-    
+
 }
 
 .offer a{
@@ -373,14 +372,14 @@ a:hover{
     display: flex;
     justify-content: space-between;
     padding: 0 40px;
-    
+
 }
 
 .offer2 img{
     width: 350px;
     height: 250px;
     border-radius: 10px;
-    
+
 }
 
 .offer2 a{
@@ -572,14 +571,14 @@ a:hover{
     display: flex;
     justify-content: space-between;
     padding: 0 40px;
-    
+
 }
 
 .offer3 img{
     width: 350px;
     height: 250px;
     border-radius: 10px;
-    
+
 }
 
 .offer3 a{
@@ -735,7 +734,7 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
 }
 
 

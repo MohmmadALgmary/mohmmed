@@ -20,10 +20,10 @@ class HomeController extends Controller
     }
     public function home2(){
 
-        $categories = Category::where('status' , 'active')->take(3)->get();
+        $categories = Category::where('status' , 'active')->take(2)->get();
         $sliders = Slider::take(3)->get();
-        // $articles = Article::orderBy('id' , 'desc')->take(3)->get();
-        return response()->view('chalets.index', compact('categories', 'sliders' ));
+        $articles = Article::orderBy('id' , 'desc')->take(3)->get();
+        return response()->view('chalets.index', compact('categories', 'sliders', 'articles' ));
     }
 
 
@@ -33,11 +33,23 @@ class HomeController extends Controller
         return view('news.all-news' , compact('categories' , 'articles'));
     }
 
+    public function all_chalets($id){
+        $categories = Category::where('status','active')->take(2)->get();
+        $articles = Article::where('category_id' , $id)->paginate(4);
+        return view('chalets.chalet_all' , compact('categories' , 'articles'));
+    }
+
     public function detailes($id){
 
         $articles = Article::findOrFail($id);
         // $categories = Category::with('articles')->get();
         return view('news.newsdetailes' , compact('articles' ));
+    }
+    public function chalets($id){
+
+        $articles = Article::findOrFail($id);
+        // $categories = Category::with('articles')->get();
+        return view('chalets.chalet' , compact('articles' ));
     }
 
     public function showContact(){

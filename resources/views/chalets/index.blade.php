@@ -15,8 +15,8 @@
 <div class="sec1">
 
 
-   
- 
+
+
 
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -46,158 +46,75 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  
-  
-  
+
+
+
     <div class="sec4">
         <div class="per">
           <h1>اخر العروض</h1>
           <a href="#">اعرض المزيد</a>
         </div>
-    
+
         <div class="offer3">
-          
+            @foreach($articles as $article)
+
           <div class="offer3-lounge1">
-            <img src="/img/صورة شالية 1.jpg" alt="شاليه">
+            <img src="{{asset('storage/images/article/'.$article->image)}}" alt="شاليه">
             <div class="offer3-lounge1-per">
               <div class="offer3-lounge1-rival">
-                <h5>شاليه السلطان</h5>
+                <h5>{{ $article->title }}</h5>
                 <div class="rival">50% خصم</div>
               </div>
-              <p class="addres">شمال غزة</p>
+              <p class="addres">{{$article->short_description}}</p>
               <div class="offer3-lounge1-details">
                 <a href="" class="details">التفاصيل</a>
                 <p class="pries">100/ليلة</p>
               </div>
             </div>
-           
+
           </div>
-    
-    
-    
+          @endforeach
+
+
+
         </div>
-    
+
       </div>
-  
-    
+
+      @foreach($categories as $category)
+
     <div class="sec2">
       <div class="per">
-        <h1>صالات مميزة</h1>
+        <h1>{{ $category->name }}</h1>
         <a href="#">اعرض المزيد</a>
       </div>
-  
+
       <div class="offer">
-        
+        @foreach($category->articles as $article)
+
         <div class="offer-lounge1">
-          <img src="/img/صورة صالة 1.jpg" alt="">
+
+          <img src="{{asset('storage/images/article/'.$article->image)}}" alt="">
           <div class="offer-lounge1-per">
-            <h5>صالة السلطان</h5>
-            <p class="addres">شمال غزة</p>
+            <h5>{{ $article->title }}</h5>
+            <p class="addres">{{$article->short_description}}</p>
             <div class="offer-lounge1-details">
               <a href="" class="details">التفاصيل</a>
               <p class="pries">100/ليلة</p>
             </div>
           </div>
-         
+
         </div>
-        <div class="offer-lounge2">
-          <img src="/img/صورة صالة 1.jpg" alt="">
-          <div class="offer-lounge2-per">
-            <h5>صالة العبد</h5>
-            <p class="addres">جنوب غزة</p>
-            <div class="offer-lounge2-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">150/ليلة</p>
-            </div>
-          </div>
-        </div>
-        <div class="offer-lounge3">
-          <img src="/img/صورة صالة 1.jpg" alt="">
-          <div class="offer-lounge3-per">
-            <h5>صالة الوحش</h5>
-            <p class="addres">شرق غزة</p>
-            <div class="offer-lounge3-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">50/ليلة</p>
-            </div>
-          </div>
-        </div>
-        <div class="offer-lounge4">
-          <img src="/img/صورة صالة 1.jpg" alt="">
-          <div class="offer-lounge4-per">
-            <h5>صالة النور</h5>
-            <p class="addres">غرب غزة</p>
-            <div class="offer-lounge4-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">200/ليلة</p>
-            </div>
-          </div>
-          </div>
-        </div>
-  
-  
-      </div>
-  
-  
-    <div class="sec3">
-      <div class="per">
-        <h1>شاليهات مميزة</h1>
-        <a href="#">اعرض المزيد</a>
-      </div>
-  
-      <div class="offer2">
-        
-        <div class="offer2-lounge1">
-          <img src="/img/صورة شالية 1.jpg" alt="شاليه">
-          <div class="offer2-lounge1-per">
-            <h5>شاليه السلطان</h5>
-            <p class="addres">شمال غزة</p>
-            <div class="offer2-lounge1-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">100/ليلة</p>
-            </div>
-          </div>
-         
-        </div>
-        <div class="offer2-lounge2">
-          <img src="/img/صورة شالية 1.jpg" alt="شاليه">
-          <div class="offer2-lounge2-per">
-            <h5>شاليه العبد</h5>
-            <p class="addres">جنوب غزة</p>
-            <div class="offer2-lounge2-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">150/ليلة</p>
-            </div>
-          </div>
-        </div>
-        <div class="offer2-lounge3">
-          <img src="/img/صورة شالية 1.jpg" alt="شاليه">
-          <div class="offer-lounge3-per">
-            <h5>شاليه الوحش</h5>
-            <p class="addres">شرق غزة</p>
-            <div class="offer2-lounge3-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">50/ليلة</p>
-            </div>
-          </div>
-        </div>
-        <div class="offer2-lounge4">
-          <img src="/img/صورة شالية 1.jpg" alt="شاليه">
-          <div class="offer-lounge4-per">
-            <h5>شاليه النور</h5>
-            <p class="addres">غرب غزة</p>
-            <div class="offer2-lounge4-details">
-              <a href="" class="details">التفاصيل</a>
-              <p class="pries">200/ليلة</p>
-            </div>
-          </div>
-          </div>
-        </div>
-  
-  
-      </div>
-  
-      <div class="sec5">
+
+        @endforeach
+
+
+    </div>
+
+
+    @endforeach
+
+    <div class="sec5">
         <h1>مميزاتنا</h1>
         <div class="sec5-advantages1">
           <div class="advantages1">
@@ -221,28 +138,13 @@
             <p>إمكانية الحجز و الدفع أونلاين</p>
           </div>
         </div>
-       
+
       </div>
-  
-      <div class="sec6">
-        <div class="sec6-cont">
-          <h1>انشئ موقعك الخاص</h1>
-          <p>احصل على موقعك الإلكتروني بهويتك الخاصة</p>
-          <a href="#">اطلب الخدمة الان
-            <i class="fa-solid fa-arrow-left"></i>
-          </a>
-        </div>
-        <div class="sec6-cont-img">
-          <img src="/img/website.webp" alt="lap">
-        </div>
-      </div>
-  
-  
-     </div>
-  
+
+
   </div>
 
-@endsection
+    @endsection
 
 
 

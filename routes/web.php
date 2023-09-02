@@ -120,8 +120,11 @@ Route::prefix('home')->group(function(){
 });
 Route::prefix('home2')->group(function(){
     Route::get('index' , [HomeController::class , 'home2'])->name('chalets.home2');
-   
-    // Route::post('contact' , [HomeController::class , 'storeContact'])->name('contact');
+    Route::get('all_chalets/{id}' , [HomeController::class , 'all_chalets'])->name('chalets.all_chalets');
+    Route::get('chalt/{id}' , [HomeController::class , 'chalets'])->name('chalets.chalet');
+    Route::get('showContact' , [HomeController::class , 'showContact'])->name('chalets.contact');
+
+    Route::post('contact' , [HomeController::class , 'storeContact'])->name('contact');
 
 });
 

@@ -9,6 +9,6 @@ class Category extends Model
 {
     use HasFactory;
     public function articles(){
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class)->take(3)->orderBy('Created_at','desc');
     }
 }

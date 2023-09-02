@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+/* start header */
+
+
+
+
+
+.sec1{
+    min-height: 100vh;
+}
+
+
+.header-top{
+    background-color: rgba(0, 0, 255, 0.389);
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: larger;
+}
+
+.nav{
+    display: flex;
+    gap: 40px;
+    
+}
+
+.nav a {
+    transition: 0.5s;
+}
+
+a:hover{
+    color: blue;
+}
+
+
+
+
+
+.hero{
+    background-image:url(/img/صورة\ شالية\ 1.jpg) ;
+    background-size: cover;
+    height: 75vh;
+    background-repeat: no-repeat;
+
+
+}
+.header-top {
+    background-color: rgba(24, 29, 41, 0.849);
+    
+}
+
+
+.hero-text{
+    padding-top: 200px;
+    color: white;
+    text-align: center;
+    
+}
+
+.hero-text h1{
+    font-size: 30px;
+}
+.hero-text p{
+    font-size: 15px;
+}
+
+.carousel-item img {
+    width: 100% !important;
+    height: 90vh;
+}
+.nav a {
+    transition: 0.5s;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    color: white;
+}
+
+.carousel-dark .carousel-caption {
+    color: orangered;
+    padding-top: 100px;
+}
+
+.carousel-dark .carousel-caption {
+    color: orangered;
+    padding-top: 100px;
+}
+
+.header-top .logo p{
+    color: white;
+}
+.header-log a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+    border-bottom: 2px solid transparent;
+
+}
+.header-log a:hover{
+   
+    border-bottom: 2px solid #1D1D1D;
+
+}
+.header-log .log{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(0, 132, 255);
+    border-radius: 20px;
+    
+}
+.header-log .login{
+    margin-right: 30px ;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(0, 132, 255);
+    border-radius: 20px;
+    
+}
+
+
+/* end header */
+
+
+
+/* start sec2 */
+.sec2{
+    height: 50vh;
+    background-color: rgb(24, 29, 41);
+}
+.sec2-icons{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15vh ;
+}
+.sec2-icons .hand{
+    padding-right: 50px;
+}
+.sec2 p{
+    font-size: 25px ;
+    color: white;
+    
+}
+
+.sec2 .sec2-icons a{
+    font-size: 80px;
+    color: #F1C050;
+    display: inline-block;
+    
+}
+
+/* end sec2 */
+
+/* start sec3 */
+
+.sec3{
+    height: 120vh;
+    background-color: rgb(24, 29, 41);
+}
+.sec3-icons{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1vh ;
+}
+.sec3-icons .sec3-hand{
+    padding-right: 50px;
+}
+.sec3 p{
+    font-size: 25px ;
+    color: white;
+
+}
+
+.sec3 .sec3-icons a{
+    font-size: 80px;
+    color: #F1C050;
+    display: inline-block;
+
+}
+
+
+.sec3 .sec3-imges{
+    display: flex;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.sec3-imges img{
+    width: 350px;
+
+}
+
+
+
+
+
+.sec3 .sec4-imges{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+
+
+.sec4-imges img{
+    width: 350px;
+
+}
+
+
+/* end sec3 */
+
+
+/* start sec4 */
+
+.sec5-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    height: 5vh;
+    color: #F1C050;
+}
+
+.sec5-icons a:nth-child(2){
+    background-color: #F1C050;
+    color: white;
+    
+
+}
+.sec5-icons a:nth-child(4){
+    background-color: #F1C050;
+    color: white;
+
+}
+
+
+
+
+/* end sec4 */
+
+
+
+
+
+
+
+/* start footer */
+
+
+
+
+footer{
+    background-color: rgba(24, 29, 41, 0.897);
+    color: #F1C050;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 30px;
+    height: 50vh;
+    align-items: center;
+}
+
+footer h5{
+
+    font-size: 25px;
+    color: #F1C050;
+
+}
+
+.link-fast{
+    line-height: 30px;
+}
+.contact-footer{
+    line-height: 30px;
+}
+
+.serve-footer{
+    line-height: 30px;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+
+.link-fast{
+    font-size: 15px;
+    display: block;
+}
+
+
+/* end footer */
+

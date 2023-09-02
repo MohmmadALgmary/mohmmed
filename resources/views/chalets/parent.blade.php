@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
     @yield('styles')
     <title>صالات شاليهات | @yield('title')</title>
-  
+
 
 </head>
 <body>
@@ -24,12 +24,14 @@
     <div class="logo"><p>راحتك في الحجز الان</p></div>
     <div class="nav">
       <a href="{{ route('chalets.home2') }}">الرئيسية</a>
-      @foreach($categories as $category)
-      <a href="#">{{ $category->name }}</a>
+      <a href="#">العروض</a>
+       @foreach($categories as $category)
+      <a href="{{ route('chalets.all_chalets' , $category->id) }}">{{ $category->name }}</a>
 
-      @endforeach
-    
-      <a href="#">تواصل معنا</a>
+      @endforeach 
+
+
+      <a href="{{ route('chalets.contact') }}">تواصل معنا</a>
       <a href="#">ابحث</a>
     </div>
     <div class="header-log">
@@ -38,7 +40,7 @@
     </div>
    </div>
 
-   
+
 </div>
 
 @yield('content')
@@ -49,11 +51,11 @@
         </div>
             <div class="link-fast">
               <h5>روابط سريعة</h5>
-                <a href="#">ابحث عن استراحة</a>
+                <a href="">ابحث عن استراحة</a>
                 <a href="#" >تسجيل الدخول</a>
                 <a href="#">تواصل معنا</a>
           </div>
-          
+
           <div class="contact-footer">
             <h5>معلوماتي</h5>
             <a href="#" class="contact-footer1">من نحن</a>
@@ -65,10 +67,10 @@
             <a href="#" class="serve-footer1">أضف استراحتك</a>
             <a href="#" class="serve-footer2">انشئ موقعك الخاص</a>
           </div>
-      
+
     </footer>
 
-  
+
 
 
 

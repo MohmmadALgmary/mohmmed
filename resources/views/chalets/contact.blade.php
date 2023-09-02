@@ -1,6 +1,6 @@
-@extends('news.parent')
+@extends('chalets.parent')
 
-@section('title' , 'CONTACT')
+@section('title' , 'تواصل معنا')
 
 
 @section('styles')
@@ -22,7 +22,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="{{ route('news.home') }}">Home</a>
+          <a href="{{ route('chalets.home') }}">Home</a>
         </li>
         <li class="breadcrumb-item active">Contact</li>
       </ol>
@@ -101,8 +101,8 @@
 
 @section('scripts')
 
-<script src="{{ asset('news/js/jqBootstrapValidation.js') }}"></script>
-<script src="{{ asset('news/js/contact_me.js') }}"></script>
+<script src="{{ asset('chalets/js/jqBootstrapValidation.js') }}"></script>
+<script src="{{ asset('chalets/js/contact_me.js') }}"></script>
 <script src="{{ asset('cms/js/crud.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -119,7 +119,7 @@
         formData.append('email',document.getElementById('email').value);
         formData.append('message',document.getElementById('message').value);
 
-        store('/home/contact' , formData)
+        store('/home2/contact' , formData)
 
         
     }
