@@ -33,30 +33,30 @@
         <div class="col-lg-8 mb-4">
           <!-- Contact Form -->
 
-          <h3>Send us a Message</h3>
+          <h3>تواصل معنا </h3>
           <form name="sentMessage" id="contactForm" novalidate>
             <div class="control-group form-group">
               <div class="controls">
-                <label>Full Name:</label>
+                <label>الاسم الكامل:</label>
                 <input type="text" class="form-control" id="fullname" name="fullname" >
                 <p class="help-block"></p>
               </div>
             </div>
             <div class="control-group form-group">
               <div class="controls">
-                <label>Phone Number:</label>
+                <label>رقم الجوال:</label>
                 <input type="tel" class="form-control" id="mobile" name="mobile" data-validation-required-message="Please enter your phone number.">
               </div>
             </div>
             <div class="control-group form-group">
               <div class="controls">
-                <label>Email Address:</label>
+                <label>البريد الالكتروني:</label>
                 <input type="email" class="form-control" id="email" name="email" >
               </div>
             </div>
             <div class="control-group form-group">
               <div class="controls">
-                <label>Message:</label>
+                <label>الرسالة:</label>
                 <textarea rows="10" cols="100" class="form-control" id="message" name="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
               </div>
             </div>
@@ -67,7 +67,7 @@
         </div>
         <!-- Contact Details Column -->
         <div class="col-lg-4 mb-4">
-          <h3>Contact Details</h3>
+          <h3>تفاصيل الاتصال</h3>
           <p>
             3481 Melrose Place
             <br>Beverly Hills, CA 90210
@@ -121,7 +121,7 @@
 
         store('/home2/contact' , formData)
 
-        
+
     }
 </script>
 

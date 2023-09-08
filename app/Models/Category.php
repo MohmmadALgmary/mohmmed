@@ -11,4 +11,7 @@ class Category extends Model
     public function articles(){
         return $this->hasMany(Article::class)->take(3)->orderBy('Created_at','desc');
     }
+    public function sub_categories(){
+        return $this->hasMany(Sub_category::class,'country_id','id')->take(3)->orderBy('Created_at','desc');
+    }
 }

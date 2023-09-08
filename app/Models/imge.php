@@ -15,4 +15,7 @@ class imge extends Model
     public function products(){
         return $this->hasMany(company::class);
     }
+    public function chalet(){
+        return $this->belongsTo(Chalet::class);
+    }
 }

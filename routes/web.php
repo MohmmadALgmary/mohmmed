@@ -123,6 +123,7 @@ Route::prefix('home2')->group(function(){
     Route::get('all_chalets/{id}' , [HomeController::class , 'all_chalets'])->name('chalets.all_chalets');
     Route::get('chalt/{id}' , [HomeController::class , 'chalets'])->name('chalets.chalet');
     Route::get('showContact' , [HomeController::class , 'showContact'])->name('chalets.contact');
+    Route::get('supervisor' , [HomeController::class , 'supervisor'])->name('chalets.supervisor');
 
     Route::post('contact' , [HomeController::class , 'storeContact'])->name('contact');
 

@@ -16,13 +16,18 @@ class CreateChaletsTable extends Migration
         Schema::create('chalets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-
+            $table->float('price');
             $table->string('image')->nullable();
             $table->string('title');
             $table->string('description');
-            $table->foreignId('city_id');
+            $table->foreignId('country_id')->nullable();
+            $table->foreign('country_id')->on('countries')->references('id')->cascadeOnDelete();
+            $table->foreignId('city_id')->nullable();
             $table->foreign('city_id')->on('cities')->references('id')->cascadeOnDelete();
-
+            $table->foreignId('imge_id')->nullable();
+            $table->foreign('imge_id')->on('imges')->references('id')->cascadeOnDelete();
+            $table->foreignId('sub_category_id')->nullable();
+            $table->foreign('sub_category_id')->on('sub_category')->references('id')->cascadeOnDelete();
             $table->timestamps();
         });
     }

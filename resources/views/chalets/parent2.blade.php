@@ -17,7 +17,7 @@
         <div class="header-top fixed-top">
           <div class="logo"><p>راحتك في الحجز الان</p></div>
           <div class="nav">
-            <a href="#">لوحة التحكم</a>
+            <a href="{{ route('chalets.supervisor') }}">لوحة التحكم</a>
             <a href="{{ route('chalets.home2') }}">الرئيسية</a>
             <a href="#">شارك الصفحة</a>
             <a href="#">معرض الصور</a>

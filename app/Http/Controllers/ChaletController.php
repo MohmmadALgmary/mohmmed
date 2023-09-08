@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Chalets;
+use App\Models\chalets;
+use App\Models\City;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class ChaletController extends Controller
@@ -24,7 +25,10 @@ class ChaletController extends Controller
      */
     public function create()
     {
-        return response()->view('cms.chalet.create');
+        $cities = City::all();
+        $countries = Country::all();
+
+        return response()->view('cms.chalet.create', compact('cities' , 'countries'));
     }
 
     /**
@@ -35,14 +39,14 @@ class ChaletController extends Controller
      */
     public function store(Request $request)
     {
-         $validator = Validator($request->all() , [
+        $validator = Validator($request->all() , [
+
+        ] , [
 
         ]);
 
-         if(! $validator->fails()){
-
-             $chalets = new $chalets();
-
+        if(! $validator->fails()){
+            $chalets = new chalets();
 
             if (request()->hasFile('image')) {
 
@@ -50,31 +54,40 @@ class ChaletController extends Controller
 
                 $imageName = time() . 'image.' . $image->getClientOriginalExtension();
 
-               $image->move('storage/images/chalet', $imageName);
-             $image->storeAs('storage/images/admin', $imageName);
+                $image->move('storage/images/chalet', $imageName);
+                // $image->storeAs('storage/images/admin', $imageName);
 
                 $chalets->image = $imageName;
                 }
 
-        //   $chalet->name = $request->get('name');
-             $chalet->title = $request->get('title');
-             $chalet->description = $request->get('description');
-             $chalet->description = $request->get('description2');
+            $chalets->title = $request->get('title');
+            $chalets->description = $request->get('description');
+            $chalets->description2 = $request->get('description2');
+            $chalets->description3 = $request->get('description3');
+            $chalets->description4 = $request->get('description4');
+            $chalets->description5 = $request->get('description5');
 
+            $chalets->city_id = $request->get('city_id');
+            $chalets->country_id = $request->get('country_id');
 
-             $isSaved = $chalets->save();
-             return response()->json([
-                 'icon' => 'success' ,
-                 'title' => 'Created is Successfully'
-             ] , 200) ;
+            $isSaved = $chalets->save();
 
-         }
-         else{
+            if($isSaved){
+                return response()->json([
+                    'icon' => 'success' ,
+                    'title' => 'Created is Successfully',
+                ] , 200);
+            }
+
+        }
+        else{
             return response()->json([
-                 'icon' => 'error' ,
-                'title' => $validator->getMessageBag()->first()] , 400);
-         }
+                'icon' => 'error' ,
+                'title' => $validator->getMessageBag()->first(),
+            ] , 400);
+        }
     }
+
 
     /**
      * Display the specified resource.

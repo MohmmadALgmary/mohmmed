@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Dashboard | @yield('title')</title>
+  <title> لوحة تحكم | @yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,10 +38,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link">الرئيسية</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">تواصل معنا</a>
       </li>
     </ul>
 
@@ -468,7 +468,7 @@
                   <p>Index</p>
                 </a>
               </li>
-           
+
             </ul>
           </li>
 
@@ -511,17 +511,17 @@
             </a>
           </li>
           {{-- } --}}
-            
+
           {{-- @elseif(Auth::guard('author')->id()){
                 <li class="nav-item">
-             
+
             <a href="iframe.html" class="nav-link">
                 <i class="nav-icon fas fa-user-edit"></i>
               <p>Edit Profile</p>
             </a>
           </li>
           } --}}
-         
+
           <li class="nav-item">
             <a href="{{ route('change_password') }}" class="nav-link">
                 <i class="nav-icon fas fa-lock-open"></i>

@@ -21,7 +21,7 @@
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="{{ route('chalets.home2') }}">الرىيسية</a>
+        <a href="{{ route('chalets.home2') }}">الرئيسية</a>
       </li>
       <li class="breadcrumb-item active">Portfolio 1</li>
     </ol>
