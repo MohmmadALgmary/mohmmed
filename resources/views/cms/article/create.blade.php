@@ -41,6 +41,16 @@
 
                         </select>
                       </div>
+                      <div class="form-group">
+                        <label>Country NAme</label>
+                        <select class="form-control select2" id="country_id" name="country_id"  style="width: 100%;">
+                          @foreach ($countries as $country)
+                          <option value="{{ $country ->id }}">{{ $country->name }}</option>
+
+                          @endforeach
+
+                        </select>
+                      </div>
                       <!-- /.form-group -->
 
                       <!-- /.form-group -->
@@ -77,8 +87,8 @@
                     <div class="col-md-12">
                       <div class="form-group">
                           <label for="full_description">Full Description of Article</label>
-                              <textarea class="form-control" style="resize: none;" id="full_description" name="full_description" rows="4"
-                              placeholder="Enter Full Description of Article " cols="50"></textarea>
+                              <textarea class="form-control" style="resize: none;" id="full_description" name="full_description" rows="10"
+                              placeholder="Enter Full Description of Article " cols="1000"></textarea>
                       </div>
                   </div>
                 </div>
@@ -160,6 +170,8 @@
         formData.append('full_description',document.getElementById('full_description').value);
         formData.append('author_id',document.getElementById('author_id').value);
         formData.append('category_id',document.getElementById('category_id').value);
+        formData.append('country_id',document.getElementById('country_id').value );
+
         formData.append('image',document.getElementById('image').files[0]);
         // formData.append('language_id',document.getElementById('language_id').value);
 

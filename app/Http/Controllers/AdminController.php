@@ -30,6 +30,34 @@ class AdminController extends Controller
         return redirect()->route('admins.index')->with('error', 'لا يمكنك حذف نفسك.');
     }
 }
+public function restoreAll(){
+    $admins = Admin::onlyTrashed()->restore();
+    if($admins){
+        return redirect()->back()->with('success','تم الاستعادة');
+    }
+    else{
+        // 
+    }
+    
+}
+public function restore(){
+    $admins = Admin::withTrashed()
+    ->where('id',$id)->restore();
+ 
+        return redirect()->back()->with('Admin','Restored Successfully ');
+    }
+    public function foceDeleteEle(){
+        $admins = Admin::withTrashed()->where('id',$id)->foceDelete();
+     
+            return redirect()->back()->with('Admin','Restored Successfully ');
+        }
+
+
+public function indexTrash(){
+    $admins = Admin::onlyTrashed()->paginate(15);
+        return response()->view('cms.Admin.trashed');
+    
+}
 
 
 
@@ -168,6 +196,7 @@ class AdminController extends Controller
     {
         $cities= City::all();
         $admins = Admin::findOrFail($id);
+
 
         return response()->view('cms.Admin.edit' , compact('cities' , 'admins'));
     }

@@ -27,103 +27,108 @@
             <!-- form start -->
             <form>
 
-              <div class="card-body">
-                <div class="row">
+                <div class="card-body">
+                    <div class="row">
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <label>City</label>
-                      <select class="form-control select2" id="city_id" name="city_id"  style="width: 100%;">
-                        @foreach ($cities as $city)
-                        {{-- <option value="{{ $city->id }}">{{ $city->name }}</option> --}}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label>City</label>
+                          <select class="form-control select2" id="city_id" name="city_id"  style="width: 100%;">
+                            @foreach ($cities as $city)
+                            <option value="{{ $city->id }}">{{ $city->name }}</option>
 
-                        <option @if ($city->id == $admins->user->city_id) selected @endif value="{{ $city->id }}">
-                          {{ $city->name }}</option>
-                        @endforeach
-                      </select>
+                            @endforeach
+
+                          </select>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <!-- /.form-group -->
+                      </div>
+
+                      <div class="col-md-6">
+                         <div class="form-group">
+                          <label>Role NAme</label>
+                          <select class="form-control select2" id="role_id" name="role_id"  style="width: 100%;">
+                            @foreach ($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+
+                            @endforeach
+
+                          </select>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <!-- /.form-group -->
+                      </div>
                     </div>
-                    <!-- /.form-group -->
 
-                    <!-- /.form-group -->
-                  </div>
-                </div>
+                      <div class="row">
 
-                  <div class="row">
+                      <div class="form-group col-md-6">
+                        <label for="first_name">First Name of Admin</label>
+                      <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter Name of Admin">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="last_name">Last Name of Admin</label>
+                      <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Name of Admin">
+                    </div>
+                    </div>
 
-                  <div class="form-group col-md-6">
-                    <label for="first_name">First Name of Admin</label>
-                  <input type="text" class="form-control" name="first_name" id="first_name"
-                  value="{{ $admins->user->first_name }}" placeholder="Enter Name of Admin">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="last_name">Last Name of Admin</label>
-                  <input type="text" class="form-control" name="last_name" id="last_name"
-                  value="{{ $admins->user->last_name }}" placeholder="Enter Name of Admin">
-                </div>
-                </div>
+                    <div class="row">
 
-                <div class="row">
+                        <div class="form-group col-md-6">
+                          <label for="email">Email of Admin</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Name of Admin">
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter Name of Admin">
+                      </div>
+                      </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                          <label for="mobile">Mobile of Admin</label>
+                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter Name of Admin">
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label for="address"> Address of Admin</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Enter Name of Admin">
+                      </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="form-group col-md-6">
+                          <label for="date">Date of Bitrh</label>
+                        <input type="date" class="form-control" name="date" id="date" placeholder="Enter Name of Admin">
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label for="image"> Choose File</label>
+                        <input type="file" class="form-control" name="image" id="image" placeholder="Enter Name of Admin">
+                      </div>
+                    </div>
+
+                    <div class="row">
 
                     <div class="form-group col-md-6">
-                      <label for="email">Email of Admin</label>
-                    <input type="email" class="form-control" name="email" id="email"
-                    value="{{ $admins->email }}" placeholder="Enter Name of Admin">
-                  </div>
-                  {{-- <div class="form-group col-md-6">
-                      <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter Name of Admin">
-                  </div> --}}
-                  </div>
-                <div class="row">
+                        <label for="gender">Gender</label>
+                        <select name="gender" id="gender" class="form-select form-select-sm" style="width: 100%;">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
 
                     <div class="form-group col-md-6">
-                      <label for="mobile">Mobile of Admin</label>
-                    <input type="text" class="form-control" name="mobile" id="mobile"
-                    value="{{ $admins->user->mobile }}" placeholder="Enter Name of Admin">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="address"> Address of Admin</label>
-                    <input type="text" class="form-control" name="address" id="address"
-                    value="{{ $admins->user->address }}" placeholder="Enter Name of Admin">
-                  </div>
-                  </div>
+                        <label for="status">Status</label>
+                        <select name="status" id="status" class="form-select form-select-sm" style="width: 100%;">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">In Active</option>
+                        </select>
+                    </div>
 
-                  <div class="row">
-
-                    <div class="form-group col-md-6">
-                      <label for="date">Date of Bitrh</label>
-                    <input type="date" class="form-control" name="date" id="date"
-                    value="{{ $admins->user->date }}" placeholder="Enter Name of Admin">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="image"> Choose File</label>
-                    <input type="file" class="form-control" name="image" id="image" placeholder="Enter Name of Admin">
-                  </div>
                 </div>
-
-                <div class="row">
-
-                <div class="form-group col-md-6">
-                    <label for="gender">Gender</label>
-                    <select name="gender" id="gender" class="form-select form-select-sm" style="width: 100%;">
-                      <option selected> {{ $admins->user->gender }} </option>
-
-                      <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="status">Status</label>
-                    <select name="status" id="status" class="form-select form-select-sm" style="width: 100%;">
-                      <option selected> {{ $admins->user->status }} </option>
-
-                      <option value="Active">Active</option>
-                        <option value="Inactive">In Active</option>
-                    </select>
-                </div>
-
-            </div>
 
             </div>
 

@@ -52,7 +52,7 @@
     <div class="sec4">
         <div class="per">
           <h1>اخر العروض</h1>
-          <a href="#">اعرض المزيد</a>
+          <a href="{{ route('chalets.city_all') }}">اعرض المزيد</a>
         </div>
 
         <div class="offer3">
@@ -67,7 +67,7 @@
               </div>
               <p class="addres">{{$article->short_description}}</p>
               <div class="offer3-lounge1-details">
-                <a href="" class="details">التفاصيل</a>
+                <a href="{{ route('chalets.chalet' , $article->id) }}" class="details">التفاصيل</a>
                 <p class="pries">100/ليلة</p>
               </div>
             </div>
@@ -86,7 +86,7 @@
     <div class="sec2">
       <div class="per">
         <h1>{{ $category->name }}</h1>
-        <a href="#">اعرض المزيد</a>
+        <a href="{{ route('chalets.city_all') }}">اعرض المزيد</a>
       </div>
 
       <div class="offer">
@@ -142,6 +142,18 @@
       </div>
 
 
+  </div>
+  <div class="sec6">
+    <div class="sec6-cont">
+      <h1>انشئ موقعك الخاص</h1>
+      <p>احصل على موقعك الإلكتروني بهويتك الخاصة</p>
+      <a href="{{ route('chalets.contact') }}">اطلب الخدمة الان
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+    </div>
+    <div class="sec6-cont-img">
+      <img src="{{ asset('chalets/img/website.webp') }}" alt="lap">
+    </div>
   </div>
 
     @endsection

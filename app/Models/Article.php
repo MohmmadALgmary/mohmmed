@@ -15,4 +15,10 @@ class Article extends Model
     public function author(){
         return $this->belongsTo(Author::class);
     }
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
+    public function imge(){
+        return $this->morphMany(User::class , 'actor' , 'actor_type' , 'actor_id' , 'id');
+    }
 }

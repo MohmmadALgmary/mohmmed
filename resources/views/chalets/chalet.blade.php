@@ -19,28 +19,18 @@
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="2000">
-        <img src="/img/صورة شالية 1.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+        @foreach($sliders as $slider)
+
+        <div class="carousel-item active" data-bs-interval="2000">
+          <img src="{{asset('storage/images/slider/'.$slider->image)}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>{{ $slider->title }}</h3>
+            <p>{{ $slider->description }}</p>
+          </div>
         </div>
+        @endforeach
+
       </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="/img/صورة شالية 2.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="/img/صورة صالة 1.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -99,18 +89,19 @@
       </div>
     </div>
 
+    
     <div class="sec3-imges">
-      <img src="/img/صورة شالية 2.jpg" alt="img1">
-      <img src="/img/صورة شالية 2.jpg" alt="img2">
-      <img src="/img/صورة شالية 2.jpg" alt="img3">
-    </div>
+        <img src="{{asset('chalets/img/ (1).png')}}" alt="img1">
+        <img src="{{asset('chalets/img/ (4).png')}}" alt="img2">
+        <img src="{{asset('chalets/img/ (6).png')}}" alt="img3">
+      </div>
 
-    <div class="sec4-imges">
-      <img src="/img/صورة شالية 2.jpg" alt="img1">
-      <img src="/img/صورة شالية 2.jpg" alt="img2">
-      <img src="/img/صورة شالية 2.jpg" alt="img3">
-    </div>
-    </div>
+      <div class="sec4-imges">
+        <img src="{{asset('chalets/img/ (8).PNG')}}" alt="img1">
+        <img src="{{asset('chalets/img/ (9).png')}}" alt="img2">
+        <img src="{{asset('chalets/img/ (3).png')}}" alt="img3">
+      </div>
+      </div>
 
 
 

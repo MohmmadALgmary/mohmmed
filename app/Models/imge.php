@@ -12,6 +12,10 @@ class imge extends Model
         return $this->morphMany(User::class , 'actor' , 'actor_type' , 'actor_id' , 'id');
     }
     use HasFactory;
+    public function actor(){
+        return $this->morphTo();
+    }
+
     public function products(){
         return $this->hasMany(company::class);
     }

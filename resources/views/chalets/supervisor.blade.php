@@ -25,7 +25,7 @@
             <label style="font-family: Traditional Arabic; font-size: 18pt; font-weight: bold; color: #c0a375"  class="label2">مساعد مشرف</label>
             </div>
             
-            <button class="button">تسجيل الدخول</button>
+           <a href="http://127.0.0.1:8000/cms/admin/login"> <button class="button">تسجيل الدخول</button></a>
         </div>
  </div>
 

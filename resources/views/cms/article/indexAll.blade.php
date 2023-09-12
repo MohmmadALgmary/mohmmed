@@ -96,6 +96,7 @@
             <thead>
               <tr>
                 <th style="width: 10px">id</th>
+
                 <th>Image</th>
                 <th>Title of Article</th>
                 <th>Short Description</th>
@@ -107,13 +108,17 @@
             <tbody>
 
                 @foreach ($articles as $article )
+                
                 <tr>
+                    <td>{{$article->id  }}</td>
                   <td>
                     <img class="img-circle img-bordered-sm" src="{{asset('storage/images/article/'.$article->image)}}" width="50" height="50" alt="User Image">
                 </td>
-                    <td>{{$article->id  }}</td>
+               
                     <td>{{ $article->title }}</td>
                     <td>{{ $article->short_description }}</td>
+                    {{-- <td><span class="badge bg-success"> {{$article->country->name}}</span></td> --}}
+
 
                     {{-- <td><span class="badge bg-info"> {{$Article->status}}</span></td> --}}
 

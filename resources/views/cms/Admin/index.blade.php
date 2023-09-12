@@ -90,7 +90,10 @@
         <div class="card-header">
           @can('Create-Admin')
           <a href="{{route('admins.create')}}" type="submit" class="btn btn-info">Add New Admin</a>
-          <a href="{{route('exportExcel')}}" type="submit" class="btn btninfo">Export Excel</a>
+          {{-- <a href="{{route('exportExcel')}}" type="submit" class="btn btninfo">Export Excel</a> --}}
+          <button type="button" onclick="performDestroy({{$admin->id }} , this)" class="btn btn-danger">delete</button>
+
+         
           @endcan
         </div>
         <!-- /.card-header -->
@@ -121,8 +124,8 @@
                 <tr>
                     <td>{{$admin->id  }}</td>
                     <td>
-                      <img class="img-circle img-bordered-sm" src="{{asset('storage/images/admin/'.$admin->user->image)}}" width="50" height="50" alt="User Image">
-                  </td>
+                        <img class="img-circle img-bordered-sm" src="{{asset('storage/images/admin/'.$admin->image)}}" width="50" height="50" alt="User Image">
+                    </td>
                     <td>{{ $admin->user->first_name ?? ""}}</td>
                     <td>{{ $admin->user->last_name ?? ""}}</td>
                     <td>{{ $admin->email }}</td>

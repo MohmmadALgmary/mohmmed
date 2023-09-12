@@ -15,26 +15,23 @@ class CountryController extends Controller
      */
     public function index(Request $request)
     {
-        $countries = Country::withCount('cities')->orderBy('id' , 'desc');
-
+        $countries = Country::withCount('cities')->orderBy('id', 'desc');
 
         if ($request->get('name')) {
-            $countries = Country::where('name', 'like', '%' . $request->name . '%');
-                                //  ->Orwhere('code', 'like', '%' . $request->code . '%');
+            $countries->where('name', 'like', '%' . $request->name . '%');
         }
         if ($request->get('code')) {
-            $countries = Country::where('code', 'like', '%' . $request->code . '%');
-                                //  ->Orwhere('code', 'like', '%' . $request->code . '%');
+            $countries->orWhere('code', 'like', '%' . $request->code . '%');
         }
         if ($request->get('created_at')) {
-            $countries = Country::where('created_at', 'like', '%' . $request->created_at . '%');
-                                //  ->Orwhere('code', 'like', '%' . $request->code . '%');
+            $countries->orWhere('created_at', 'like', '%' . $request->created_at . '%');
         }
 
         $countries = $countries->paginate(5);
-        return response()->view('cms.country.index' , compact('countries'));
 
+        return response()->view('cms.Country.index', compact('countries'));
     }
+
 
 
     /**
@@ -151,12 +148,12 @@ class CountryController extends Controller
 
     }
 
-    public function indexTrashed()
-    {
-        $countries =Country::onlyTrashed()->orderBy('deleted_','desc');
+    // public function indexTrashed()
+    // {
+    //     $countries =Country::onlyTrashed()->orderBy('deleted_','desc');
 
-        return response()->view('cms.country.trashed' , compact('countries'));
-    }
+    //     return response()->view('cms.country.trashed' , compact('countries'));
+    // }
     // public function restore()
     // {
     //     $countries =Country::onlyTrashed()->findOrFail($id)->restor();

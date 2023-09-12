@@ -20,7 +20,7 @@ class HomeController extends Controller
     }
     public function home2(){
 
-        $categories = Category::where('status' , 'active')->take(2)->get();
+        $categories = Category::where('status' , 'active')->take(3)->get();
         $sliders = Slider::take(3)->get();
         $articles = Article::orderBy('id' , 'desc')->take(3)->get();
         return response()->view('chalets.index', compact('categories', 'sliders', 'articles' ));
@@ -34,9 +34,20 @@ class HomeController extends Controller
     }
 
     public function all_chalets($id){
-        $categories = Category::where('status','active')->take(2)->get();
+        $categories = Category::where('status','active')->take(3)->get();
         $articles = Article::where('category_id' , $id)->paginate(4);
         return view('chalets.chalet_all' , compact('categories' , 'articles'));
+    }
+    public function city_all(){
+        $categories = Category::where('status' , 'active')->take(3)->get();
+
+        return view('chalets.city_all', compact('categories'));
+
+    }
+        public function supervisor(){
+
+        return view('chalets.supervisor');
+
     }
 
     public function detailes($id){
@@ -48,12 +59,19 @@ class HomeController extends Controller
     public function chalets($id){
 
         $articles = Article::findOrFail($id);
+        $sliders = Slider::take(3)->get();
+
         // $categories = Category::with('articles')->get();
-        return view('chalets.chalet' , compact('articles' ));
+        return view('chalets.chalet' , compact('articles', 'sliders' ));
     }
 
     public function showContact(){
         return view('news.contact');
+    }
+    public function showContact1(){
+        $categories = Category::where('status' , 'active')->take(3)->get();
+
+        return view('chalets.contact', compact('categories'));
     }
 
     public function storeContact(Request $request){

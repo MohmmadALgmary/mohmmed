@@ -24,19 +24,20 @@
     <div class="logo"><p>راحتك في الحجز الان</p></div>
     <div class="nav">
       <a href="{{ route('chalets.home2') }}">الرئيسية</a>
-      <a href="#">العروض</a>
-       @foreach($categories as $category)
-      <a href="{{ route('chalets.all_chalets' , $category->id) }}">{{ $category->name }}</a>
+      <a href="{{ route('chalets.city_all') }}">العروض</a>
 
-      @endforeach 
+      @foreach($categories as $category)
+      <a href="{{ route('chalets.city_all') }}">{{ $category->name }}</a>
 
-
+      @endforeach
       <a href="{{ route('chalets.contact') }}">تواصل معنا</a>
+
+
       <a href="#">ابحث</a>
     </div>
     <div class="header-log">
-      <a href="#" class="log">تسجيل الدخول</a>
-      <a href="#" class="login">سجل الان</a>
+      <a href="http://127.0.0.1:8000/cms/admin/login" class="log">تسجيل الدخول</a>
+      <a href="{{ route('chalets.contact') }}" class="login">سجل الان</a>
     </div>
    </div>
 
@@ -51,9 +52,9 @@
         </div>
             <div class="link-fast">
               <h5>روابط سريعة</h5>
-                <a href="">ابحث عن استراحة</a>
-                <a href="#" >تسجيل الدخول</a>
-                <a href="#">تواصل معنا</a>
+                <a href="{{ route('chalets.city_all') }}">ابحث عن استراحة</a>
+                <a href="http://127.0.0.1:8000/cms/admin/login" >تسجيل الدخول</a>
+                <a href="{{ route('chalets.contact') }}">تواصل معنا</a>
           </div>
 
           <div class="contact-footer">

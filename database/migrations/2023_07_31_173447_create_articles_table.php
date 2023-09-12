@@ -22,8 +22,13 @@ class CreateArticlesTable extends Migration
 
             $table->foreignId('category_id');
             $table->foreign('category_id')->on('categories')->references('id')->cascadeOnDelete();
+            
             $table->foreignId('author_id');
             $table->foreign('author_id')->on('authors')->references('id')->cascadeOnDelete();
+           
+            $table->foreignId('country_id');
+            $table->foreign('country_id')->on('countries')->references('id')->cascadeOnDelete();
+          
             $table->softDeletes();
             $table->timestamps();
         });

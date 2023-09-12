@@ -12,6 +12,9 @@ class Chalets extends Model
     public function city(){
         return $this->belongsTo(City::class);
     }
+    public function imge(){
+        return $this->morphMany(User::class , 'actor' , 'actor_type' , 'actor_id' , 'id');
+    }
    
     public function imges(){
         return $this->hasMany(Imge::class);

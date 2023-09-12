@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -18,7 +19,11 @@ class ArticleController extends Controller
      public function indexArticle($id)
      {
          //
+         $articles = Article::orderBy('id' , 'desc')->paginate(5);
+
          $articles = Article::where('author_id', $id)->orderBy('created_at', 'desc')->paginate(5);
+         $articles = Article::with('country')->OrderBy('id' , 'desc')->paginate(10);
+
          return response()->view('cms.article.index', compact('articles','id'));
      }
 
@@ -26,14 +31,17 @@ class ArticleController extends Controller
      {
          $authors = Author::all();
          $categories = Category::where('status' , 'active')->get();
+         $countries = Country::all();
 
-         return response()->view('cms.article.create' , compact('authors' , 'categories' , 'id'));
+         return response()->view('cms.article.create' , compact('authors' , 'categories' ,'countries' , 'id'));
 
      }
 
     public function index()
     {
         $articles = Article::orderBy('id' , 'desc')->paginate(5);
+        $articles = Article::with('country')->OrderBy('id' , 'desc')->paginate(10);
+
 
         return response()->view('cms.article.indexAll' , compact('articles'));
     }
@@ -47,8 +55,8 @@ class ArticleController extends Controller
     {
         $authors = Author::all();
         $categories = Category::where('status' , 'active')->get();
-
-        return response()->view('cms.article.create' , compact('authors' , 'categories'));
+        $countries = Country::all();
+        return response()->view('cms.article.create' , compact('authors' , 'categories', 'countries'));
 
     }
 
@@ -86,6 +94,7 @@ class ArticleController extends Controller
             $articles->full_description = $request->get('full_description');
             $articles->category_id = $request->get('category_id');
             $articles->author_id = $request->get('author_id');
+            $articles->category_id = $request->get('country_id');
 
             $isSaved = $articles->save();
 
@@ -127,7 +136,9 @@ class ArticleController extends Controller
         $authors = Author::all();
         $categories = Category::where('status' , 'active')->get();
         $aricles = Article::findOrFail($id);
-        return response()->view('cms.article.edit' , compact( 'categories' ,'authors'  , 'articles'));
+        $countries = Country::all();
+
+        return response()->view('cms.article.edit' , compact( 'categories' ,'authors'  , 'articles', 'countries'));
 
 
     }
@@ -168,6 +179,7 @@ class ArticleController extends Controller
                 $articles->full_description = $request->get('full_description');
                 $articles->category_id = $request->get('category_id');
                 $articles->author_id = $request->get('author_id');
+                $articles->category_id = $request->get('country_id');
 
                 $isUpdate = $articles->save();
 

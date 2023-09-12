@@ -67,7 +67,11 @@ Route::prefix('cms/admin')->middleware('auth:admin,author')->group(function(){
 
  Route::resource('admins' , AdminController::class);
  Route::post('admins-update/{id}' , [AdminController::class , 'update'])->name('admins-update');
-
+ Route::get('indexTrash',[AdminController::class , 'indexTrash'])->name('TrashAdmins');
+ Route::get('restoreAll',[AdminController::class , 'restoreAll'])->name('restoreAll');
+ Route::get('restore/{id}',[AdminController::class , 'restore'])->name('restore');
+ Route::get('foceDeleteElement/{id}',[AdminController::class , 'foceDeleteEle'])->name('foceDeleteElement');
+ 
  Route::resource('authors' , AuthorController::class);
  Route::post('authors-update/{id}' , [AuthorController::class , 'update'])->name('authors-update');
 
@@ -122,8 +126,9 @@ Route::prefix('home2')->group(function(){
     Route::get('index' , [HomeController::class , 'home2'])->name('chalets.home2');
     Route::get('all_chalets/{id}' , [HomeController::class , 'all_chalets'])->name('chalets.all_chalets');
     Route::get('chalt/{id}' , [HomeController::class , 'chalets'])->name('chalets.chalet');
-    Route::get('showContact' , [HomeController::class , 'showContact'])->name('chalets.contact');
+    Route::get('showContact1' , [HomeController::class , 'showContact1'])->name('chalets.contact');
     Route::get('supervisor' , [HomeController::class , 'supervisor'])->name('chalets.supervisor');
+    Route::get('city_all' , [HomeController::class , 'city_all'])->name('chalets.city_all');
 
     Route::post('contact' , [HomeController::class , 'storeContact'])->name('contact');
 

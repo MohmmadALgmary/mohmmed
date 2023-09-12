@@ -14,6 +14,9 @@ class Country extends Model
     public function cities(){
         return $this->hasMany(City::class);
     }
+    public function articles(){
+        return $this->hasMany(Article::class);
+    }
 
     protected static function boot() {
         parent::boot();

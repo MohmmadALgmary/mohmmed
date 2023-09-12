@@ -23,7 +23,7 @@
       <li class="breadcrumb-item">
         <a href="{{ route('chalets.home2') }}">الرئيسية</a>
       </li>
-      <li class="breadcrumb-item active">Portfolio 1</li>
+      <li class="breadcrumb-item active">القسم الاول</li>
     </ol>
 
     <!-- news title One -->
@@ -39,6 +39,8 @@
           <div class="col-md-5">
             <h3>{{ $article->title }}</h3>
             <p>{{$article->short_description}}</p>
+            <p>{{$article->full_description}}</p>
+
             <a class="btn btn-primary" href="{{ route('chalets.chalet' , $article->id) }}">التفاصيل
               <span class="glyphicon glyphicon-chevron-right"></span>
             </a>

@@ -22,7 +22,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="{{ route('chalets.home') }}">Home</a>
+          <a href="{{ route('chalets.home2') }}">Home</a>
         </li>
         <li class="breadcrumb-item active">Contact</li>
       </ol>

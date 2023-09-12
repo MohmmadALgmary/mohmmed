@@ -19,6 +19,13 @@ class CreateImgesTable extends Migration
             $table->string('image')->nullable();
             $table->foreignId('chalet_id')->nullable();
             $table->foreign('chalet_id')->on('chalet')->references('id')->cascadeOnDelete();
+
+
+
+
+            
+            $table->morphs('actor');
+
             $table->timestamps();
 
         });

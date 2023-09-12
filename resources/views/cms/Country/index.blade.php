@@ -17,11 +17,10 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          {{-- <a href="{{route('countries.create')}}" type="submit" class="btn btn-info">Add New Country</a> --}}
+          <a href="{{route('countries.create')}}" type="submit" class="btn btn-info">Add New Country</a>
 
 
-          {{-- <a href="{{route('countries.index' , $country->id )}}" type="button" class="btn btn-info">Got to Index</a> --}}
-          {{-- <button type="button" onclick="performDestroy(all)" class="btn btn-danger">Delete All</button> --}}
+    <a href="{{ route('countries.index') }}" type="button" class="btn btn-info">Go to Index</a>           <button type="button" onclick="performDestroy(all)" class="btn btn-danger">Delete All</button>
 
 
           <form action="" method="get" style="margin-bottom:2%;">
